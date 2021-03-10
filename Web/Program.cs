@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
+#define  DEBUG
+
 namespace OurAirlines.Web
 {
     public class Program
