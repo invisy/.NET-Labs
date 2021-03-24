@@ -14,6 +14,10 @@ namespace OurAirlines.AppCore.Entities
 
         public Plane(string name, string model, int totalSeats)
         {
+            #if DEBUG
+                Console.WriteLine($"'{GetType().Name}' class initializer ctor called");
+            #endif
+            
             _travelClasses = new List<TravelClass>();
             Name = name;
             Model = model;

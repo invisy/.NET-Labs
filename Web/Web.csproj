@@ -5,4 +5,8 @@
         <RootNamespace>OurAirlines</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\AppCore\AppCore.csproj" />
+    </ItemGroup>
+
 </Project>

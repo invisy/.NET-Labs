@@ -1,13 +1,14 @@
+#define  DEBUG
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AppCore.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-
-#define  DEBUG
 
 namespace OurAirlines.Web
 {
@@ -15,7 +16,8 @@ namespace OurAirlines.Web
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            //CreateHostBuilder(args).Build().Run();
+            BookingService bookingService = new BookingService();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

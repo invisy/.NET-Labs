@@ -1,4 +1,6 @@
-﻿namespace OurAirlines.AppCore.Entities
+﻿using System;
+
+namespace OurAirlines.AppCore.Entities
 {
     public class PlaneSeat : BaseEntity<int>
     {
@@ -8,6 +10,10 @@
 
         public PlaneSeat(string number, int travelClassId)
         {
+            #if DEBUG
+                Console.WriteLine($"'{GetType().Name}' class initializer ctor called");
+             #endif
+            
             Number = number;
             TravelClassId = travelClassId;
         }

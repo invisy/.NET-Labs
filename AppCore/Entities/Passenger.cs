@@ -1,4 +1,6 @@
-﻿namespace OurAirlines.AppCore.Entities
+﻿using System;
+
+namespace OurAirlines.AppCore.Entities
 {
     public class Passenger : BaseEntity<int>
     {
@@ -8,8 +10,12 @@
         public string UniquePassportId { get; private set; }
         public int Age { get; private set; }
 
-        public Passenger(string name, string surname, string uniquePassportId, string patronymic, int age)
+        public Passenger(string name, string surname, string patronymic, string uniquePassportId, int age)
         {
+            #if DEBUG
+                Console.WriteLine($"'{GetType().Name}' class initializer ctor called");
+            #endif
+            
             Name = name;
             Surname = surname;
             Patronymic = patronymic;
