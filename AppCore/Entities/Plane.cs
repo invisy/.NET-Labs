@@ -24,6 +24,12 @@ namespace OurAirlines.AppCore.Entities
             TotalSeats = totalSeats;
         }
 
+        public static Plane operator ++(Plane plane)
+        {
+            plane.TotalSeats += 1;
+            return plane;
+        }
+        
         public void AddTravelClass(TravelClass travelClass)
         {
             _travelClasses.Add(travelClass);

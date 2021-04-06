@@ -45,6 +45,12 @@ namespace OurAirlines.AppCore.Entities
             _seats = new List<PlaneSeat>(flight._seats);
         }
 
+        public static Flight operator +(Flight flight, PlaneSeat seat)
+        {
+            flight._seats.Add(seat);
+            return flight;
+        }
+        
         public void AddSeat(PlaneSeat seat)
         {
             _seats.Add(seat);
