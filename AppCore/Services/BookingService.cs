@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AppCore.Exceptions;
 using OurAirlines.AppCore.Entities;
 
 namespace AppCore.Services
@@ -49,7 +50,7 @@ namespace AppCore.Services
             PlaneSeat seat1 = new PlaneSeat("1A", 1);
             flight1.AddSeat(seat1);
 
-            Passenger passenger = new Passenger("Pass1", "Surn1", "Patr1", "556465454", 22);
+            Passenger passenger = new Passenger("Pass1", "Surn1", "Patr1", "000303050", 22);
             
             Ticket ticket = new Ticket(passenger, 3, 550);
             
@@ -58,9 +59,31 @@ namespace AppCore.Services
 
         public void BuyTicket(Flight flight, Passenger passenger, int seatId)
         {
-            throw new System.NotImplementedException();
+            float ticketPrice = flight.FlightPrice;
+            string passengerFullName = passenger.Surname + " " + passenger.Name;
+
+            if (seatId < 1 || seatId > flight.Plane.TotalSeats)
+            {
+                throw new PlaneSeatIdOutOfRangeException("Plane seat id was out of range");
+            }
+
+            Ticket ticketToAdd = new Ticket(passenger, seatId, ticketPrice);
+            _tickets.Add(ticketToAdd);
+
+            Console.WriteLine("Ticket for passenger " + passengerFullName + " was bought.");
         }
-        
+
+        public Flight GetFlightById(int flightId)
+        {
+            if (flightId < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(flightId), "flight id can't be negative number");
+            }
+
+            var flight = _flights.Find(x => x.Id == flightId);
+            return flight;
+        }
+
         public void SearchFlights()
         {
             throw new System.NotImplementedException();

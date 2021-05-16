@@ -15,7 +15,12 @@ namespace OurAirlines.AppCore.Entities
             #if DEBUG
                 Console.WriteLine($"'{GetType().Name}' class initializer ctor called");
             #endif
-            
+
+            if (uniquePassportId.Length != 9)
+            {
+                throw new ArgumentException("Passport id should contain 9 symbols", nameof(uniquePassportId));
+            }
+
             Name = name;
             Surname = surname;
             Patronymic = patronymic;
