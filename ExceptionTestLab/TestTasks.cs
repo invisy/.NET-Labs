@@ -19,12 +19,12 @@ namespace ExceptionTestLab
 
         public static void ArraysExceptionTest(int numOfElements)
         {
-            float[] array1 = new float[5] { 1, 2, 3, 4, 5 };
-            float[] array2 = new float[7] { 9, 8, 7, 6, 5, 6, 7 };
+            decimal[] array1 = new decimal[5] { 1, 2, 3, 4, 5 };
+            decimal[] array2 = new decimal[7] { 9, 8, 7, 6, 5, 6, 7 };
 
             try
             {
-                float[] arrayResult = new float[numOfElements];
+                decimal[] arrayResult = new decimal[numOfElements];
                 for (int i = 0; i < numOfElements; i++)
                 {
                     arrayResult[i] = array1[i] / array2[i];

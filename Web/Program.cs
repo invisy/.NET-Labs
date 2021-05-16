@@ -33,7 +33,7 @@ namespace OurAirlines.Web
                     25);
 
                 Flight flight = bookingService.GetFlightById(0);
-                bookingService.BuyTicket(flight, passenger, 1);
+                bookingService.BuyTicket(flight, null, 1);
             }
             catch (ArgumentOutOfRangeException ex)
             {
@@ -53,7 +53,7 @@ namespace OurAirlines.Web
             }
 
             //TestTasks.InvalidCastExceptionTest();
-            TestTasks.ArraysExceptionTest(8);
+            //TestTasks.ArraysExceptionTest(5);
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
