@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using OurAirlines.AppCore.Entities;
+using AppCore.Entities;
 
 namespace AppCore.Services
 {
