@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AppCore.Exceptions;
 using AppCore.Services;
 using ExceptionTestLab;
+using Lab8;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -19,41 +20,12 @@ namespace OurAirlines.Web
     {
         public static void Main(string[] args)
         {
-            //CreateHostBuilder(args).Build().Run();
+            //Lab8.FirstTask.DoTask();
+            
+            var fileTask = new FileTask(@"Data\text.txt");
+            fileTask.DoTask();
 
-            BookingService bookingService = new BookingService();
-            Console.WriteLine('\n' + "--------- Exception Tests ---------" + '\n');
 
-            try
-            {
-                Passenger passenger = new Passenger("Oleksandr",
-                    "Joestar",
-                    "Patrontest",
-                    "000202060",
-                    25);
-
-                Flight flight = bookingService.GetFlightById(0);
-                bookingService.BuyTicket(flight, null, 1);
-            }
-            catch (ArgumentOutOfRangeException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            catch (ArgumentException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            catch (NullReferenceException)
-            {
-                Console.WriteLine("You should not use NULL objects as arguments in BuyTicket method");
-            }
-            catch (PlaneSeatIdOutOfRangeException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            //TestTasks.InvalidCastExceptionTest();
-            //TestTasks.ArraysExceptionTest(5);
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
